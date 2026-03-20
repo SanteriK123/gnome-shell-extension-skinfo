@@ -1,0 +1,8 @@
+{
+  "name": "Skinfo",
+  "description": "Lists student restaurant menus retrieved from skinfo.dy.fi",
+  "uuid": "skinfo@santerik123.github.com",
+  "shell-version": [
+    "49"
+  ]
+}
