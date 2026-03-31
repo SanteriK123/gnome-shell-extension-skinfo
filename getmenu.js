@@ -25,15 +25,12 @@ export async function getRestaurantMenus() {
       const restaurantObj = entry[1];
       let restaurantName = restaurantObj.name;
 
-      formattedItems[restaurantName] = [];
-
-      if (restaurantObj["days"].length == 0) {
-        formattedItems[restaurantName].push({
-          category: "Error",
-          title: "No menu for today",
-        });
-      } else {
-        if (!restaurantObj["days"][todayISO]) {
+      if (Object.keys(restaurantObj["days"]).length !== 0) {
+        formattedItems[restaurantName] = [];
+        if (
+          !restaurantObj["days"][todayISO] ||
+          restaurantObj["days"][todayISO]["foods"].length <= 0
+        ) {
           formattedItems[restaurantName].push({
             category: "Error",
             title: "No menu for today",
